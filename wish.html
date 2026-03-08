@@ -20,7 +20,6 @@ animation:fadeIn 1s;
 100%{opacity:1;transform:scale(1)}
 }
 
-/* card */
 .card{
 position:absolute;
 top:50%;
@@ -32,7 +31,6 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* ảnh xòe quạt */
 .fan{
 display:flex;
 justify-content:center;
@@ -49,18 +47,20 @@ cursor:pointer;
 transition:0.3s;
 }
 
+.fan img:hover{
+transform:scale(1.1);
+}
+
 .fan img:nth-child(1){transform:rotate(-20deg);}
 .fan img:nth-child(2){transform:rotate(-8deg);}
 .fan img:nth-child(3){transform:rotate(8deg);}
 .fan img:nth-child(4){transform:rotate(20deg);}
 
-/* tiêu đề */
 h1{
 color:#ff0033;
 font-size:40px;
 }
 
-/* lời chúc */
 .message{
 font-size:26px;
 font-weight:bold;
@@ -70,7 +70,23 @@ background:linear-gradient(90deg,#ff0055,#ffcc00);
 -webkit-text-fill-color:transparent;
 }
 
-/* hoa rơi */
+.btn{
+margin-top:25px;
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff3366;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ff0033;
+transform:scale(1.05);
+}
+
 .flower{
 position:fixed;
 top:-20px;
@@ -83,7 +99,6 @@ animation:fall linear forwards;
 100%{transform:translateY(100vh)}
 }
 
-/* nền tối khi phóng to ảnh */
 .overlay{
 position:fixed;
 top:0;
@@ -97,7 +112,6 @@ align-items:center;
 z-index:999;
 }
 
-/* ảnh phóng to */
 .overlay img{
 width:520px;
 border-radius:15px;
@@ -133,23 +147,24 @@ Mẹ luôn là người tuyệt vời nhất trong cuộc đời con.
 Con yêu mẹ rất nhiều! ❤️
 </div>
 
+<button class="btn" onclick="goVideo()">🌸 Món quà nhỏ cho mẹ</button>
+
 </div>
 
 <script>
 
-/* hoa rơi */
+function goVideo(){
+window.location.href="video.html";
+}
+
 function createFlower(){
 
 let flower=document.createElement("div");
-
 flower.className="flower";
-
 flower.innerHTML="🌸";
 
 flower.style.left=Math.random()*100+"vw";
-
 flower.style.fontSize=(Math.random()*20+15)+"px";
-
 flower.style.animationDuration=(Math.random()*4+3)+"s";
 
 document.body.appendChild(flower);
@@ -160,8 +175,6 @@ setTimeout(()=>flower.remove(),7000);
 
 setInterval(createFlower,300);
 
-
-/* phóng to ảnh */
 document.querySelectorAll(".fan img").forEach(img=>{
 img.onclick=function(){
 
@@ -185,7 +198,4 @@ overlay.remove();
 </script>
 
 </body>
-
 </html>
-
-
